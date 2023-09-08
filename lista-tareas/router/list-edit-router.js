@@ -18,6 +18,7 @@ router.delete('/:idTarea', (req, res) => {
     res.status(200).send({eliminarTarea});
 });
 
+//actualizar tarea
 router.put('/:idTarea', (req, res) => {
     const id = req.params.idTarea;
     const tarea = req.body
