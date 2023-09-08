@@ -1,12 +1,12 @@
 const listaTareas = [{
     id: 1,
     descripcion: "Hacer lista de react",
-    isCompleted: true
+    completed: true
 },
 {
     id: 2,
     descripcion: "Hacer lista de NodeJs",
-    iscompleted: false
+    completed: false
 },
 {
     id: 3,
@@ -21,7 +21,7 @@ const listaTareas = [{
 {
     id: 5,
     descripcion: "Tender la cama",
-    iscompleted: false
+    completed: false
 }]
 
-module.exports = listaTareas;
+module.exports = listaTareas;;
