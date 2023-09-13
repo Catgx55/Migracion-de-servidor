@@ -11,7 +11,7 @@ routerTarea.get('/completa', (req, res) => {
     res.send(tareaCompleta);    
 });
 
-//listar las tareas que están completas
+//listar las tareas que están incompletas
 routerTarea.get('/incompleta', (req, res) => {
     const tareaIncompleta = listaTareas.filter(t => t.completed == false);
     res.send(tareaIncompleta);

@@ -1,6 +1,9 @@
 const express = require('express');
 const listaTareas = require('../lista');
+const valuePost = require('../middleware/valuePost');
 const router = express.Router();
+
+router.use(valuePost);
 
 
 //Crear tareas
