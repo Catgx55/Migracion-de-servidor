@@ -5,6 +5,6 @@ const valuePost = ((req, res, next) => {
     }else{
         next();
     }
-})
+});
 
 module.exports = valuePost;
