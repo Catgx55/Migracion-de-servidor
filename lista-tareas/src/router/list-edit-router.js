@@ -1,43 +1,41 @@
 const express = require('express');
 const listaTareas = require('../lista');
-const valuePost = require('../middleware/valuePost');
+const valueBody = require('../middleware/valueBody');
 const valueInfor = require('../middleware/valueInfor');
-const valuePut = require('../middleware/valuePut');
 const router = express.Router();
 
-router.use(valuePost);
-router.use("/:idTarea",valuePut);
+//router.use("/:idTarea",valuePut);
 
 
 //Crear tareas
-router.post('/', valueInfor, (req, res) => {
+router.post('/crearTarea', valueBody, valueInfor, (req, res) => {
     const tareaNueva = req.body;
     listaTareas.push(tareaNueva);
-    res.status(200).send("tarea añadida exitosamente");
+    res.status(200).json("tarea añadida exitosamente");
 });
 
 //eliminar tarea, correccion de codigo segun recomendaciones.
-router.delete('/:idTarea', (req, res) => {
+router.delete('/eliminar/:idTarea', (req, res) => {
     const id = req.params.idTarea;
     const indexTarea = listaTareas.findIndex((e) => e.id == id);
-    if(indexTarea >= 0 && indexTarea < listaTareas.length){
+    if(indexTarea > 0){
         const eliminarTarea = listaTareas.splice(indexTarea, 1)[0];
-        res.status(200).send({eliminarTarea});
+        res.status(200).json({eliminarTarea});
     }else{
-        res.status(400).send("la tarea no existe");
+        res.status(400).json("la tarea no existe");
     }
 });
 
 //actualizar tarea
-router.put('/:idTarea', valueInfor, (req, res) => {
+router.put('/actualizar/:idTarea', valueBody, valueInfor, (req, res) => {
     const id = req.params.idTarea;
     const tarea = req.body
     const indexTarea = listaTareas.findIndex((e) => e.id == id);
-    if(indexTarea >= 0 && indexTarea < listaTareas.length){
+    if(indexTarea > 0){
         listaTareas[indexTarea] = tarea
-        res.status(200).send("tarea modificada exitosamente");
+        res.status(200).json("tarea modificada exitosamente");
     }else{
-        res.status(400).send("la tarea no existe");
+        res.status(400).json("la tarea no existe");
     }
 });
 
