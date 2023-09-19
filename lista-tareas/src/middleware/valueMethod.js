@@ -4,7 +4,7 @@ const valueMethod = ((req, res, next) => {
     if(metodosValidos.includes(metodos)){
         next();
     }else{
-        res.status(400).json("Metodo incorrecto");
+        res.status(405).json("Metodo incorrecto");
     }
 });
 
