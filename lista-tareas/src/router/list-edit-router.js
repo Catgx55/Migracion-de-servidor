@@ -22,7 +22,7 @@ router.delete('/eliminar/:idTarea', (req, res) => {
         const eliminarTarea = listaTareas.splice(indexTarea, 1)[0];
         res.status(200).json({eliminarTarea});
     }else{
-        res.status(400).json("la tarea no existe");
+        res.status(404).json("la tarea no existe");
     }
 });
 
@@ -33,9 +33,9 @@ router.put('/actualizar/:idTarea', valueBody, valueInfor, (req, res) => {
     const indexTarea = listaTareas.findIndex((e) => e.id == id);
     if(indexTarea > 0){
         listaTareas[indexTarea] = tarea
-        res.status(200).json("tarea modificada exitosamente");
+        res.status(201).json("tarea modificada exitosamente");
     }else{
-        res.status(400).json("la tarea no existe");
+        res.status(404).json("la tarea no existe");
     }
 });
 
