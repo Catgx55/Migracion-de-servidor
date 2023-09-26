@@ -24,4 +24,4 @@ const listaTareas = [{
     completed: false
 }]
 
-module.exports = listaTareas;;
+module.exports = listaTareas;
