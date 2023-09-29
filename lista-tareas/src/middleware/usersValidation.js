@@ -29,7 +29,7 @@ module.exports = usersValidation;
             }else{
                 res.send('Acceso no autorizado');
             }
-        }else{
+        }else if('/medium-clients){
             (decoded.rol === "user2")
         }
     }); */

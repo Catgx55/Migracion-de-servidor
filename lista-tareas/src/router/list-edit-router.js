@@ -17,7 +17,7 @@ router.delete('/eliminar/:idTarea', usersValidation, (req, res) => {
     const id = req.params.idTarea;
     const indexTarea = listaTareas.findIndex((e) => e.id == id);
     if(indexTarea > 0){
-        const eliminarTarea = listaTareas.splice(indexTarea, 1)[0];
+        const eliminarTarea = listaTareas.splice(indexTarea, 1);
         res.status(200).json({eliminarTarea});
     }else{
         res.status(404).json("la tarea no existe");
