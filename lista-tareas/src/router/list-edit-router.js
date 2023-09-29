@@ -1,5 +1,5 @@
 const express = require('express');
-const listaTareas = require('../lista');
+const listaTareas = require('../data/lista');
 const valueBody = require('../middleware/valueBody');
 const valueInfor = require('../middleware/valueInfor');
 const usersValidation = require('../middleware/usersValidation');
@@ -12,7 +12,7 @@ router.post('/crearTarea', valueBody, valueInfor, usersValidation, (req, res) =>
     res.status(200).json("tarea añadida exitosamente");
 });
 
-//eliminar tarea, correccion de codigo segun recomendaciones.
+//eliminar tareas por su id
 router.delete('/eliminar/:idTarea', usersValidation, (req, res) => {
     const id = req.params.idTarea;
     const indexTarea = listaTareas.findIndex((e) => e.id == id);
@@ -24,7 +24,7 @@ router.delete('/eliminar/:idTarea', usersValidation, (req, res) => {
     }
 });
 
-//actualizar tarea
+//actualizar tareas por su id
 router.put('/actualizar/:idTarea', valueBody, valueInfor, usersValidation, (req, res) => {
     const id = req.params.idTarea;
     const tarea = req.body

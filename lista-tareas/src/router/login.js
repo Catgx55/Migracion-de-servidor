@@ -1,6 +1,7 @@
+//Middleware para validar los usuarios y crear la firma
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const users = require('../users');
+const users = require('../data/users');
 const login = express.Router();
 require('dotenv').config({path:'./.env'});
 

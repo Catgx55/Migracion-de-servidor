@@ -1,8 +1,9 @@
 const express = require('express');
-const listaTareas = require('../lista');
+const listaTareas = require('../data/lista');
 const usersValidation = require('../middleware/usersValidation');
 const routerTarea = express.Router();
 
+//muestra la lista de tareas y tambien la tareas por su id.
 routerTarea.get('/listaTareas/:id', usersValidation, (req, res) => {
     const id = req.params.id
     const indexTarea = listaTareas.findIndex((e) => e.id == id);
@@ -12,7 +13,7 @@ routerTarea.get('/listaTareas/:id', usersValidation, (req, res) => {
         res.status(201).json(listaTareas);
     }
 });
-//listar las tareas que están completas
+//lista las tareas que están completas y las incompletas
 routerTarea.get('/:completa', usersValidation, (req, res) => {
     const completa = req.params.completa;
     if(completa === "completa"){

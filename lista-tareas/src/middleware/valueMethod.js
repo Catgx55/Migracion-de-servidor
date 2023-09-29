@@ -1,3 +1,4 @@
+//middleware para validar los metodos HTTP
 const valueMethod = ((req, res, next) => {
     const metodosValidos = ["GET", "POST", "PUT", "DELETE"];
     const metodos = req.method;
